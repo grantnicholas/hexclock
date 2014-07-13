@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+
+<style> 
+.absolute-center {
+	/*width: 50%;*/
+  	margin: auto;
+  	position: absolute;
+  	top: 50%; left: 50%;
+  	-webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.hex {
+	color: white;
+	font-family: 'Lato', Helvetiva, Arial, sans-serif;
+	text-align: center;
+	font-size: 4.5em;
+	display: block;
+	min-width: 200px;
+	font-weight: 100;
+}
+</style>
+
+<script>
+function startTime() 
+{
+    var today=new Date();
+    var h=checkTime(today.getHours());
+    var m=checkTime(today.getMinutes());
+    var s=checkTime(today.getSeconds());
+    document.getElementById('txt').innerHTML = "#"+h+m+s;
+    var t = setTimeout(function(){startTime()},500);
+    document.body.style.backgroundColor = "#"+h+m+s;
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()"> <div id ="txt" class = "absolute-center hex"></div> 
+</body>
+
+</html>
